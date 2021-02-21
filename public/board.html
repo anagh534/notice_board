@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
+</head>
+<body>
+    <div class="main">
+        <p class="noticeText" id="noticeText">
+            Sample Content
+        </p>
+    </div>
+
+    <style>
+        .noticeText{
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket=io();
+        socket.on('board_content',(text)=>{
+            // console.log(text);
+            document.getElementById('noticeText').innerHTML=text;
+        })
+    </script>
+</body>
+</html>
